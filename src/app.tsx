@@ -20,7 +20,7 @@ function handleSetCount(setCount, count) {
 }
 
 export function App() {
-  var [count, setCount] = useState(0)
+  let [count, setCount] = useState(0)
 
   return (
     <>
