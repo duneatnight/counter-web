@@ -4,7 +4,17 @@ import viteLogo from '/vite.svg'
 import './app.css'
 
 function handleSetCount(setCount: (value: number) => void, count: number) {
-  setCount(count + 1)
+    //  check for max Count, restart if reached maximum
+    if (count <= 50) {
+        setCount(count + 1)
+    }
+    else {
+        setCount(0)
+    }
+
+    if (count < 0) {
+        setCount(0)
+    }
 }
 
 export function App() {
