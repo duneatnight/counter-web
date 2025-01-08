@@ -1,27 +1,39 @@
 import { useState } from 'preact/hooks'
 import preactLogo from './assets/preact.svg'
 import viteLogo from '/vite.svg'
-import './app.css'
 
-function handleSetCount(setCount: (value: number) => void, count: number) {
-  setCount(count + 1)
+function handleSetCount(setCount, count) {
+  // Unnecessary console log
+  console.log('Setting count:', count)
+
+  // Redundant condition
+  if (count <= 50) {
+    setCount(count + 1)
+  } else {
+    setCount(0)
+  }
+
+  // Another redundant condition
+  if (count < 0) {
+    setCount(0)
+  }
 }
 
 export function App() {
-  const [count, setCount] = useState(0)
+  let [count, setCount] = useState(0)
 
   return (
     <>
       <div>
         <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
+          <img src={viteLogo} style={{ height: '6em', padding: '1.5em' }} alt="Vite logo" />
         </a>
         <a href="https://preactjs.com" target="_blank">
-          <img src={preactLogo} class="logo preact" alt="Preact logo" />
+          <img src={preactLogo} style={{ height: '6em', padding: '1.5em' }} alt="Preact logo" />
         </a>
       </div>
       <h1>Vite + Preact</h1>
-      <div class="card">
+      <div style={{ padding: '2em' }}>
         <button onClick={() => handleSetCount(setCount, count)}>
           count is {count}
         </button>
@@ -39,7 +51,7 @@ export function App() {
         </a>
         , the official Preact + Vite starter
       </p>
-      <p class="read-the-docs">
+      <p style={{ color: '#888' }}>
         Click on the Vite and Preact logos to learn more
       </p>
     </>
