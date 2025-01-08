@@ -3,6 +3,10 @@ import preactLogo from './assets/preact.svg'
 import viteLogo from '/vite.svg'
 import './app.css'
 
+function handleSetCount(setCount: (value: number) => void, count: number) {
+  setCount(count + 1)
+}
+
 export function App() {
   const [count, setCount] = useState(0)
 
@@ -18,7 +22,7 @@ export function App() {
       </div>
       <h1>Vite + Preact</h1>
       <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => handleSetCount(setCount, count)}>
           count is {count}
         </button>
         <p>
